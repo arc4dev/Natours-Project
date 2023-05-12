@@ -10,6 +10,7 @@ const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const compression = require('compression');
+const cors = require('cors');
 
 const tourRouter = require('./routes/tourRouter');
 const userRouter = require('./routes/userRouter');
@@ -17,10 +18,18 @@ const reviewRouter = require('./routes/reviewRouter');
 const viewRouter = require('./routes/viewRouter');
 const bookingRouter = require('./routes/bookingRouter');
 
+const bookingController = require('./controllers/bookingController');
+
 const AppError = require('./utils/AppError');
 const errorHandler = require('./controllers/errorController');
 
 const app = express();
+
+// Enable cors (GET, POST) - simple
+app.use(cors());
+
+// Enable cors with every method req
+app.use('*', cors());
 
 // Set view engine to pug templates
 app.set('view engine', 'pug');
@@ -58,15 +67,27 @@ const limit = expressLimit.rateLimit({
   message: `Too many requests from this IP adress, pleasge try again in ${process.env.REQ_LIMIT} hour!`,
 });
 
+// Compress text sending to req.body
 app.use(compression());
 
 // Limit requests
 app.use('/api', limit);
 
-// Read and parse json files in req.body
-app.use(express.json({ limit: '10kb' }));
+// Read and parse cookies in the header
 app.use(cookieParser());
+
+// Read and parse to String or Array
 app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+
+//
+app.use(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheck
+);
+
+// Read and parse to json from req.body
+app.use(express.json({ limit: '10kb' }));
 
 // Sanitize mongoDB query injections
 app.use(mongoSanitize());
@@ -89,6 +110,7 @@ app.use(
   })
 );
 
+// Enable other methods than GET, POST be in the form
 app.use(methodOverride('_method'));
 
 // Display cookies with each request

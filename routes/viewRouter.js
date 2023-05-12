@@ -10,11 +10,7 @@ const router = express.Router();
 // Only for rendering templates, does not have any errors
 router.use(authController.isLoggedIn);
 
-router.get(
-  '/',
-  bookingController.createBookingCheckout,
-  viewController.getOverview
-);
+router.get('/', viewController.getOverview);
 router.get('/my-bookings', authController.protect, viewController.getMyTours);
 router.get('/tour/:tourSlug', viewController.getTour);
 router.get('/login', viewController.login);

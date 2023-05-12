@@ -1,5 +1,5 @@
 // Handling uncaught exceptions
-process.on('uncaughtException', (err) => {
+process.on('uncaughtException', err => {
   console.log(err.name, err.message, err.stack);
   process.exit(1);
 });
@@ -24,7 +24,7 @@ const server = app.listen(port, () => {
 });
 
 // Handling promise rejections
-process.on('unhandledRejection', (err) => {
+process.on('unhandledRejection', err => {
   console.log(err.name, err.message);
   server.close(() => process.exit(1));
 });
