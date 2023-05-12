@@ -16,7 +16,7 @@ This project is part of the Node.js Express MongoDB Bootcamp course on Udemy by 
 
 The project is a Tour Web Application where you can find exiting tours all over the world, buy them and participate. It covers the following topics and features:
 
-- Building a advanced and complete RESTful API with Express.js
+- Building an advanced and complete RESTful API with Express.js
 - User authentication and authorization using JWT (JSON Web Tokens)
 - Perform CRUD operations with MongoDB using Mongoose, exploring all advanced features of the library.
 - User management: registration, login, and password reset
