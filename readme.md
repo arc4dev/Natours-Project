@@ -1,5 +1,7 @@
 # Node.js Express MongoDB Project
 
+Active link here => https://natours-project-production.up.railway.app/
+
 This project is part of the Node.js Express MongoDB Bootcamp course on Udemy by my favourite online teacher Jonas Schmedtmann
 
 ## Tech stack
@@ -45,26 +47,3 @@ Throughout the course and this project, I have gained knowledge and experience w
 - Handling errors and validating user input
 - Deploying the application to a production environment
 
-## Getting Started
-
-To run this project locally, follow these steps:
-
-1. Clone the repository: `git clone https://github.com/your-username/project-repo.git`
-2. Install dependencies: `npm install`
-3. Set up the environment variables (e.g., database connection, JWT secret)
-4. Start the development server: `npm run dev`
-5. Access the application in your browser at `http://localhost:3000`
-
-## Additional Resources
-
-For more information and detailed explanations, please refer to the course materials and the official documentation for the technologies used in this project:
-
-- [Node.js](https://nodejs.org/)
-- [Express.js](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/)
-- [Jest](https://jestjs.io/)
-- [Supertest](https://github.com/visionmedia/supertest)
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
