@@ -51,8 +51,8 @@ const createBookingCheckout = catchAsync(async session => {
   await Booking.create({ tour, user, price });
 });
 
-exports.webhookCheck = async (req, res, next) => {
-  const signature = req.header['stripe-signature'];
+exports.webhookCheck = async (req, res) => {
+  const signature = req.headers['stripe-signature'];
 
   let event;
 
