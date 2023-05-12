@@ -30,7 +30,7 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
     client_reference_id: tour.id,
     customer_email: req.user.email,
     mode: 'payment',
-    success_url: `${req.protocol}://${req.get('host')}/}`,
+    success_url: `${req.protocol}://${req.get('host')}/my-bookings`,
     cancel_url: `${req.protocol}://${req.get('host')}/tour/${tour.slug}`,
   });
 
@@ -64,9 +64,11 @@ exports.webhookCheck = async (req, res, next) => {
     res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  if (event.type === 'checkout.session.complete') {
+  if (event.type === 'checkout.session.completed') {
     createBookingCheckout(event.data.object);
   }
+
+  res.status(200).json({ received: true });
 };
 
 exports.addNewBooking = factory.addOne(Booking);
