@@ -57,7 +57,6 @@ exports.login = catchAsync(async (req, res, next) => {
 
 exports.getMe = catchAsync(async (req, res, next) => {
   const user = await User.findById(req.user.id).populate('reviews');
-  console.log(user.reviews);
 
   res.status(200).render('account', { title: 'Account', user });
 });

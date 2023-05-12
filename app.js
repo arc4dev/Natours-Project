@@ -9,6 +9,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
+const compression = require('compression');
 
 const tourRouter = require('./routes/tourRouter');
 const userRouter = require('./routes/userRouter');
@@ -56,6 +57,8 @@ const limit = expressLimit.rateLimit({
   windowMs: process.env.REQ_LIMIT * 60 * 60 * 1000,
   message: `Too many requests from this IP adress, pleasge try again in ${process.env.REQ_LIMIT} hour!`,
 });
+
+app.use(compression());
 
 // Limit requests
 app.use('/api', limit);

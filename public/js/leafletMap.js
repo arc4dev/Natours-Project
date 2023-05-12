@@ -19,7 +19,6 @@ export const displayMap = locations => {
     iconAnchor: [16, 45], // points of the icon which will correspond to marker's location
     popupAnchor: [0, -50], // point from which the popup should open relative to the iconAnchor
   });
-  console.log(locations);
 
   const markers = [];
   locations.forEach(location => {

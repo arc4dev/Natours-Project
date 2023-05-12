@@ -24,7 +24,6 @@ export const updateSettings = async (data, type) => {
       }, 1000);
     }
   } catch (err) {
-    console.log(err);
     showAlert('error', 'Something went wrong');
   }
 };
