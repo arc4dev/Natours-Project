@@ -20,7 +20,9 @@ exports.getCheckoutSession = catchAsync(async (req, res, next) => {
             name: `${tour.name} Tour`,
             description: tour.summary,
             images: [
-              `https://www.natours.dev/img/tours/${tour.imageCover}.jpg`,
+              `${req.protocol}://${req.get('host')}/img/tours/${
+                tour.imageCover
+              }.jpg`,
             ],
           },
         },
