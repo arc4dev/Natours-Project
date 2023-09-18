@@ -5,7 +5,7 @@ process.on('uncaughtException', err => {
 });
 
 require('dotenv').config({
-  path: `./config-${process.env.NODE_ENV}.env`,
+  path: `./.env`,
 });
 
 const mongoose = require('mongoose');
