@@ -10,7 +10,8 @@ This project is part of the Node.js Express MongoDB Bootcamp course on Udemy by 
 - Node.js
 - MongoDB
 - Express
-- Git
+- Mongoose
+- Pug templates
 
 ## About the Project
 
